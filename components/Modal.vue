@@ -52,18 +52,22 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   display: table;
   transition: opacity 0.3s ease;
 }
 
 .modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
 .modal-container {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 1 1 1;
+  max-width: 80%;
   margin: 0px auto;
   border-radius: 2px;
   transition: all 0.3s ease;

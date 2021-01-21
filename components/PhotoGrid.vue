@@ -29,7 +29,7 @@ export default {
 <style scoped>
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 @media screen and (min-width: 768px) {
