@@ -6,10 +6,18 @@
       >
         <div class="modal-wrapper">
           <div class="modal-container">
-            <button class="modal-default-button" @click="$emit('close')">
-              X
+            <button class="modal-default-button p-4" @click="$emit('close')">
+              <img src="@/assets/icon-close.png">
             </button>
             <img :src="require('../assets/'+activeGif.id+activeGif.frame+'.png')">
+            <div class="controls p-4">
+              <button @click="$emit('close')">
+                <img src="@/assets/icon-left.png">
+              </button>
+              <button @click="$emit('close')">
+                <img src="@/assets/icon-right.png">
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -57,9 +65,7 @@ export default {
 .modal-container {
   width: 50%;
   margin: 0px auto;
-  background-color: #fff;
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -74,7 +80,15 @@ export default {
 }
 
 .modal-default-button {
-    position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
 }
 
 /*

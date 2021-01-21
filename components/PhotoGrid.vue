@@ -1,10 +1,7 @@
 <template>
-    <div>
-        <div v-for="gif of gifs" v-bind:key="gif.id">
-            <div @click="activateGif(gif)">
-                <img :src="require('../assets/'+gif.id+gif.frame+'.png')"> 
-                <h1>{{gif.title}}</h1>
-            </div>
+    <div class="grid">
+        <div class="photo" v-for="gif of gifs" v-bind:key="gif.id" @click="activateGif(gif)">
+            <img :src="require('../assets/'+gif.id+gif.frame+'.png')"> 
         </div>
     </div>
 </template>
@@ -29,6 +26,21 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
+@media screen and (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 </style>

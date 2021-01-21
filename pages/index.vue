@@ -1,11 +1,10 @@
 <template>
   <div class="container">
+    <h1 class="p-6">Loop + Scrub</h1>
     <div>
-      <div>
         <PhotoGrid />
         <Modal v-if="activeGif" @close="activateGif(null)">
         </Modal>
-      </div>
     </div>
   </div>
 </template>
@@ -46,11 +45,15 @@ export default {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
+h1 {
+  text-align: center;
+}
 .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   text-align: center;
 }

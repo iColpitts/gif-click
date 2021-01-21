@@ -1,11 +1,12 @@
 export const state = () => ({
     activeGif: null,
+    incrament: null,
     gifs: [ 
         { 
             'id': 'bit',
             'title': 'Bits & Blobs',
             'frame': 0,
-            'maxFrame': 5
+            'maxFrame': 50
         },
         {
             'id': 'boob',
@@ -28,13 +29,25 @@ export const mutations = {
     },
     incrementFrame(state, key) {
         const gif = state.activeGif
-        if (gif && key.key == 'ArrowUp') {
-            if(gif.frame < gif.maxFrame) state.activeGif.frame++
-            console.log('increase!!!!!!')
+        const incrament = state.incrament
+        if (gif && key.key == 'ArrowRight') {
+            if(gif.frame < gif.maxFrame) {
+                state.activeGif.frame++
+            }
+            else { 
+                state.activeGif.frame = 0 
+            }
         }
-        if (gif && key.key == 'ArrowDown') {
-            if(gif.frame > 0) state.activeGif.frame--
-            console.log('decrease!!!!!!')
+        if (gif && key.key == 'ArrowLeft') {
+            if(gif.frame > 0) {
+                gif.frame--
+            }
+            else {
+                gif.frame = gif.maxFrame
+            }
         }
     },
+    toggleIncrament(state, incrament) {
+
+    }
 }
