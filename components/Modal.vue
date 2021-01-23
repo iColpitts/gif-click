@@ -9,7 +9,7 @@
             <button class="modal-default-button p-4" v-on:click="close()">
               <img src="@/assets/icon-close.png">
             </button>
-            <img class="shadow-ml" :src="require('../assets/'+activeGif.id+activeGif.frame+'.png')">
+            <img class="shadow-ml" :src="require('../assets/'+activeGif.id+activeGif.frame+activeGif.format)">
             <div class="controls p-4">
               <button v-on:click="incrementFrame(-1)">
                 <img src="@/assets/icon-left.png">
@@ -61,16 +61,17 @@ export default {
             this.setIncrement(1)
             console.log("set")
             window.clearInterval(this.interval)
-            this.interval = window.setInterval(this.increaseFrame, 33)
+            this.interval = window.setInterval(this.increaseFrame, 12)
         }
         if (key.key == 'ArrowLeft' && increment != -1) {
             this.setIncrement(-1)
             console.log("set!")
             window.clearInterval(this.interval)
-            this.interval = window.setInterval(this.decreaseFrame, 33)
+            this.interval = window.setInterval(this.decreaseFrame, 12)
         }
     },
     handleKeyUp(key) {
+      //TODO smooth animation for quick button press
       const increment = this.$store.state.increment
       if (key.key == 'ArrowRight') {
           this.setIncrement(0)

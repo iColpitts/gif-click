@@ -3,24 +3,42 @@ export const state = () => ({
     increment: null,
     interval: null,
     gifs: [ 
-        { 
-            'id': 'bit',
-            'title': 'Bits & Blobs',
-            'frame': 0,
-            'maxFrame': 50
+        {
+            'id': 'one',
+            'frame': 1,
+            'maxFrame': 156,
+            'format': '.jpeg'
         },
         {
-            'id': 'boob',
-            'title': 'Boobs!',
-            'frame': 0,
-            'maxFrame': 4
+            'id': 'two',
+            'frame': 1,
+            'maxFrame': 158,
+            'format': '.jpeg'
         },
         {
-            'id': 'gif',
-            'title': 'Bits & Blobs the 2nd',
-            'frame': 0,
-            'maxFrame': 5
-        }
+            'id': 'three',
+            'frame': 1,
+            'maxFrame': 158,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'four',
+            'frame': 1,
+            'maxFrame': 158,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'five',
+            'frame': 1,
+            'maxFrame': 161,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'six',
+            'frame': 1,
+            'maxFrame': 157,
+            'format': '.jpeg'
+        },
     ]
 })
 
