@@ -1,7 +1,7 @@
 <template>
     <div class="grid">
         <div class="photo" v-for="gif of gifs" v-bind:key="gif.id" @click="activateGif(gif)">
-            <img :src="require('../assets/'+gif.id+gif.frame+'.png')"> 
+            <img :src="require('../assets/'+gif.id+gif.frame+gif.format)"> 
         </div>
     </div>
 </template>

@@ -6,15 +6,15 @@
       >
         <div class="modal-wrapper">
           <div class="modal-container">
-            <button class="modal-default-button p-4" @click="$emit('close')">
+            <button class="modal-default-button p-4" v-on:click="close()">
               <img src="@/assets/icon-close.png">
             </button>
-            <img :src="require('../assets/'+activeGif.id+activeGif.frame+'.png')">
+            <img class="shadow-ml" :src="require('../assets/'+activeGif.id+activeGif.frame+activeGif.format)">
             <div class="controls p-4">
-              <button @click="$emit('close')">
+              <button v-on:click="incrementFrame(-1)">
                 <img src="@/assets/icon-left.png">
               </button>
-              <button @click="$emit('close')">
+              <button v-on:click="incrementFrame(1)">
                 <img src="@/assets/icon-right.png">
               </button>
             </div>
@@ -30,16 +30,66 @@ import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "Modal",
+  data() {
+    return {
+      interval: null,
+    }
+  },
   computed: {
-    ...mapState(["activeGif"]),
+    ...mapState([
+      "activeGif", 
+      "increment"
+    ]),
   },
   methods: {
     ...mapMutations([
-      "incrementFrame", //also supports payload `this.nameOfMutation(amount)` 
+      "incrementFrame",
+      "setIncrement"
     ]),
+    increaseFrame() {
+      console.log("increasing")
+      this.incrementFrame(1)
+    },
+    decreaseFrame() {
+      console.log("deceasing")
+      this.incrementFrame(-1)
+    },
+    handleKeyDown(key) {
+        const increment = this.$store.state.increment
+        console.log(increment + " " + key.key)
+        if (key.key == 'ArrowRight' && increment != 1) {
+            this.setIncrement(1)
+            console.log("set")
+            window.clearInterval(this.interval)
+            this.interval = window.setInterval(this.increaseFrame, 12)
+        }
+        if (key.key == 'ArrowLeft' && increment != -1) {
+            this.setIncrement(-1)
+            console.log("set!")
+            window.clearInterval(this.interval)
+            this.interval = window.setInterval(this.decreaseFrame, 12)
+        }
+    },
+    handleKeyUp(key) {
+      //TODO smooth animation for quick button press
+      const increment = this.$store.state.increment
+      if (key.key == 'ArrowRight') {
+          this.setIncrement(0)
+          window.clearInterval(this.interval)
+      }
+      if (key.key == 'ArrowLeft') {
+          this.setIncrement(0)
+          window.clearInterval(this.interval)
+      }
+    },
+    close() {
+      window.clearInterval(this.interval)
+      this.$emit('close')
+    }
   },
   mounted () {
-    window.addEventListener('keydown', this.incrementFrame)
+    window.addEventListener('keydown', this.handleKeyDown)
+    window.addEventListener('keyup', this.handleKeyUp)
   }
 };
 </script>
@@ -91,8 +141,12 @@ export default {
 
 .controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background: transparent;
+}
+
+button:focus {
+    outline:0 !important;
 }
 
 /*
