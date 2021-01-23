@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 class="p-6">Loop + Scrub</h1>
-    <div>
+    <div class="shadow-md">
         <PhotoGrid />
         <Modal v-if="activeGif" @close="activateGif(null)">
         </Modal>
