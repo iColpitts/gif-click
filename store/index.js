@@ -7,37 +7,37 @@ export const state = () => ({
         {
             'id': 'one',
             'frame': 1,
-            'maxFrame': 156,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'two',
             'frame': 1,
-            'maxFrame': 158,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'three',
             'frame': 1,
-            'maxFrame': 158,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'four',
             'frame': 1,
-            'maxFrame': 158,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'five',
             'frame': 1,
-            'maxFrame': 161,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'six',
             'frame': 1,
-            'maxFrame': 157,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
     ]
@@ -57,7 +57,6 @@ export const mutations = {
             else { 
                 state.activeGif.frame = 0 
             }
-            console.log(gif.frame)
         }
         if (i < 0) {
             if(gif.frame > 0) {
@@ -66,7 +65,6 @@ export const mutations = {
             else {
                 gif.frame = gif.maxFrame
             }
-            console.log(gif.frame)
         }
     },
     setIncrement(state, increment) {

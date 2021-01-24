@@ -43,7 +43,7 @@ export default {
     ]),
     loadImg(options, callback) {
       var seconds = 0,
-          maxSeconds = 10,
+          maxSeconds = 100,
           complete = false,
           done = false;
 
@@ -56,7 +56,7 @@ export default {
           }
           if (seconds >= maxSeconds) {
               callback({
-                  err: 'timeout'
+                  err: 'timeout: '+options.src
               });
               done = true;
               return;
@@ -89,7 +89,7 @@ export default {
     gifArray(gif) {
       const paths = []
       for (var i = gif.frame; i < gif.maxFrame; i++) {
-        paths.push('_nuxt/assets/'+gif.id+i+gif.format)
+        paths.push(require('~/assets/'+gif.id+i+gif.format))
       }
       return paths
     }
