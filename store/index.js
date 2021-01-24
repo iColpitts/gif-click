@@ -5,41 +5,53 @@ export const state = () => ({
     interval: null,
     gifs: [ 
         {
-            'id': 'one',
+            'id': 'porny',
             'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
+            'maxFrame': 78,
+            'format': '.jpg'
         },
         {
-            'id': 'two',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
+            'id': 'windowBoob',
+            'frame': 0,
+            'maxFrame': 43,
+            'format': '.jpg'
         },
-        {
-            'id': 'three',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'four',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'five',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'six',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
+        // {
+        //     'id': 'one',
+        //     'frame': 1,
+        //     'maxFrame': 99,
+        //     'format': '.jpeg'
+        // },
+        // {
+        //     'id': 'two',
+        //     'frame': 1,
+        //     'maxFrame': 99,
+        //     'format': '.jpeg'
+        // },
+        // {
+        //     'id': 'three',
+        //     'frame': 1,
+        //     'maxFrame': 99,
+        //     'format': '.jpeg'
+        // },
+        // {
+        //     'id': 'four',
+        //     'frame': 1,
+        //     'maxFrame': 99,
+        //     'format': '.jpeg'
+        // },
+        // {
+        //     'id': 'five',
+        //     'frame': 1,
+        //     'maxFrame': 99,
+        //     'format': '.jpeg'
+        // },
+        // {
+        //     'id': 'six',
+        //     'frame': 1,
+        //     'maxFrame': 99,
+        //     'format': '.jpeg'
+        // },
     ]
 })
 

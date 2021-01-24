@@ -2,7 +2,7 @@
   <div class="container">
     <Title v-if="loaded"/>
     <Loading  v-if="!loaded"/>
-    <div v-if="loaded" class="shadow-md">
+    <div v-if="loaded">
         <PhotoGrid />
         <Modal v-if="activeGif" @close="activateGif(null)">
         </Modal>
