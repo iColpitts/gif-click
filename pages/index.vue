@@ -43,7 +43,7 @@ export default {
     ]),
     loadImg(options, callback) {
       var seconds = 0,
-          maxSeconds = 100,
+          maxSeconds = 20,
           complete = false,
           done = false;
 
