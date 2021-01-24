@@ -106,7 +106,7 @@ export default {
     var promises = []
     paths.forEach((path => {
       const promise = new Promise((resolve, reject) => {
-        return this.loadImg({src: "_nuxt/assets/one0.jpeg"}, function (status) {
+        return this.loadImg({src: path}, function (status) {
             if (!status.err) {
               resolve(status)
             } else {
@@ -116,7 +116,7 @@ export default {
       }) 
       promises.push(promise)
     }))
-    
+
     Promise.all(promises).then(resp => {
       this.setLoaded(true)
       console.log(resp)
