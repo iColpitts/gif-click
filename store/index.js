@@ -1,4 +1,5 @@
 export const state = () => ({
+    loaded: false,
     activeGif: null,
     increment: null,
     interval: null,
@@ -71,7 +72,11 @@ export const mutations = {
     setIncrement(state, increment) {
         state.increment = increment
     },
-    setInterval(state, inteval) {
+    setInterval(state, interval) {
         state.inteval = interval
+    },
+    setLoaded(state, loaded) {
+        console.log('loaded')
+        state.loaded = loaded
     }
 }

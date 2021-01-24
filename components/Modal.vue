@@ -61,13 +61,13 @@ export default {
             this.setIncrement(1)
             console.log("set")
             window.clearInterval(this.interval)
-            this.interval = window.setInterval(this.increaseFrame, 12)
+            this.interval = window.setInterval(this.increaseFrame, 66)
         }
         if (key.key == 'ArrowLeft' && increment != -1) {
             this.setIncrement(-1)
             console.log("set!")
             window.clearInterval(this.interval)
-            this.interval = window.setInterval(this.decreaseFrame, 12)
+            this.interval = window.setInterval(this.decreaseFrame, 66)
         }
     },
     handleKeyUp(key) {
