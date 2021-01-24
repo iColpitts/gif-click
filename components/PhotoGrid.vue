@@ -30,6 +30,7 @@ export default {
 .grid {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 15px;
 }
 
 @media screen and (min-width: 768px) {

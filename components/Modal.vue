@@ -69,7 +69,6 @@ export default {
         }
     },
     handleKeyUp(key) {
-      //TODO smooth animation for quick button press
       const increment = this.$store.state.increment
       if (key.key == 'ArrowRight') {
           this.setIncrement(0)

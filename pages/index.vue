@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="p-6">Loop + Scrub</h1>
-    <Loading v-if="!loaded" />
+    <Title v-if="loaded"/>
+    <Loading  v-if="!loaded"/>
     <div v-if="loaded" class="shadow-md">
         <PhotoGrid />
         <Modal v-if="activeGif" @close="activateGif(null)">
@@ -14,6 +14,7 @@
 import Modal from '@/components/Modal.vue'
 import PhotoGrid from '@/components/PhotoGrid.vue';
 import Loading from '@/components/Loading.vue';
+import Title from '@/components/Title.vue';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
@@ -21,7 +22,8 @@ export default {
   components: {
     Modal,
     PhotoGrid,
-    Loading
+    Loading,
+    Title
   },
   data () {
     return {
