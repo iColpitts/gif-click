@@ -56,7 +56,7 @@ export default {
           }
           if (seconds >= maxSeconds) {
               callback({
-                  err: 'timeout'
+                  err: 'timeout: '+options.src
               });
               done = true;
               return;

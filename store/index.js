@@ -7,37 +7,37 @@ export const state = () => ({
         {
             'id': 'one',
             'frame': 1,
-            'maxFrame': 156,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'two',
             'frame': 1,
-            'maxFrame': 158,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'three',
             'frame': 1,
-            'maxFrame': 158,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'four',
             'frame': 1,
-            'maxFrame': 158,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'five',
             'frame': 1,
-            'maxFrame': 161,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
         {
             'id': 'six',
             'frame': 1,
-            'maxFrame': 157,
+            'maxFrame': 99,
             'format': '.jpeg'
         },
     ]
