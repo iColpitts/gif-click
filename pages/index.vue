@@ -89,7 +89,7 @@ export default {
     gifArray(gif) {
       const paths = []
       for (var i = gif.frame; i < gif.maxFrame; i++) {
-        paths.push('_nuxt/assets/'+gif.id+i+gif.format)
+        paths.push(require('~/assets/'+gif.id+i+gif.format))
       }
       return paths
     }
