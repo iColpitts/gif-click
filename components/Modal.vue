@@ -32,8 +32,8 @@ export default {
   name: "Modal",
   data() {
     return {
-      interval: null,
-      clearInterval: null
+      intervalLeft: null,
+      intervalRight: null
     }
   },
   computed: {
@@ -57,17 +57,15 @@ export default {
         const increment = this.$store.state.increment
         if (key.key == 'ArrowRight' && increment != 1) {
             this.setIncrement(1)
-            console.log("clearing")
-            window.clearInterval(this.interval)
+            window.clearInterval(this.intervalRight)
             this.increaseFrame
-            this.interval = window.setInterval(this.increaseFrame, 60)
+            this.intervalRight = window.setInterval(this.increaseFrame, 60)
         }
         if (key.key == 'ArrowLeft' && increment != -1) {
             this.setIncrement(-1)
-            console.log("clearing")
-            window.clearInterval(this.interval)
+            window.clearInterval(this.intervalLeft)
             this.decreaseFrame
-            this.interval = window.setInterval(this.decreaseFrame, 60)
+            this.intervalLeft = window.setInterval(this.decreaseFrame, 60)
         }
     },
     handleKeyUp(key) {
@@ -75,11 +73,11 @@ export default {
       const increment = this.$store.state.increment
       if (key.key == 'ArrowRight') {
           this.setIncrement(0)
-          window.clearInterval(this.interval)
+          window.clearInterval(this.intervalRight)
       }
       if (key.key == 'ArrowLeft') {
           this.setIncrement(0)
-          window.clearInterval(this.interval)
+          window.clearInterval(this.intervalLeft)
       }
     },
     close() {
