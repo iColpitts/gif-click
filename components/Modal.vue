@@ -33,6 +33,7 @@ export default {
   data() {
     return {
       interval: null,
+      clearInterval: null
     }
   },
   computed: {
@@ -47,27 +48,26 @@ export default {
       "setIncrement"
     ]),
     increaseFrame() {
-      console.log("increasing")
       this.incrementFrame(1)
     },
     decreaseFrame() {
-      console.log("deceasing")
       this.incrementFrame(-1)
     },
     handleKeyDown(key) {
         const increment = this.$store.state.increment
-        console.log(increment + " " + key.key)
         if (key.key == 'ArrowRight' && increment != 1) {
             this.setIncrement(1)
-            console.log("set")
+            console.log("clearing")
             window.clearInterval(this.interval)
-            this.interval = window.setInterval(this.increaseFrame, 66)
+            this.increaseFrame
+            this.interval = window.setInterval(this.increaseFrame, 60)
         }
         if (key.key == 'ArrowLeft' && increment != -1) {
             this.setIncrement(-1)
-            console.log("set!")
+            console.log("clearing")
             window.clearInterval(this.interval)
-            this.interval = window.setInterval(this.decreaseFrame, 66)
+            this.decreaseFrame
+            this.interval = window.setInterval(this.decreaseFrame, 60)
         }
     },
     handleKeyUp(key) {

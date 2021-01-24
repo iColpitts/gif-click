@@ -57,7 +57,6 @@ export const mutations = {
             else { 
                 state.activeGif.frame = 0 
             }
-            console.log(gif.frame)
         }
         if (i < 0) {
             if(gif.frame > 0) {
@@ -66,7 +65,6 @@ export const mutations = {
             else {
                 gif.frame = gif.maxFrame
             }
-            console.log(gif.frame)
         }
     },
     setIncrement(state, increment) {
