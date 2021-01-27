@@ -161,7 +161,7 @@ h1 {
 
 .header {
   position: absolute;
-  background: white;
+  /* background: white; */
 }
 
 .title {

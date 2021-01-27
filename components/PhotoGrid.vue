@@ -41,7 +41,7 @@ export default {
     width: 33.33vw;
     height: 33.33vh;
     object-fit: cover;
-    padding: 5px;
+    padding: 3px;
 }
 
 @media screen and (min-width: 768px) {
