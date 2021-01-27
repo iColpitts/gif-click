@@ -1,6 +1,6 @@
 <template>
   <div class="title">
-    <img src='~/assets/logo.png' />
+    <img src='~/assets/logo2.jpeg' />
   </div>
 </template>
 
@@ -11,8 +11,8 @@ export default {};
 <style scoped>
 .title {
     color: #ff2be3;
-    max-height: 450px;
-    max-width: 450px;
+    max-height: 400px;
+    max-width: 400px;
     display: flex;
     font: 1em Dosis, sans-serif;
     line-height: 1.5;
