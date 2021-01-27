@@ -1,7 +1,7 @@
 <template>
     <div class="grid">
-        <div class="photo" v-for="gif of gifs" v-bind:key="gif.id" @click="activateGif(gif)">
-            <img :src="require('../assets/'+gif.id+gif.frame+gif.format)"> 
+        <div  v-for="gif of gifs" v-bind:key="gif.id" @click="activateGif(gif)">
+            <img class="photo" :src="require('../assets/'+gif.id+gif.frame+gif.format)"> 
         </div>
     </div>
 </template>
@@ -28,9 +28,20 @@ export default {
 
 <style scoped>
 .grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    /* display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 15px; */
+}
+
+.photo {
+    width: 33.33vw;
+    height: 33.33vh;
+    object-fit: cover;
+    padding: 5px;
 }
 
 @media screen and (min-width: 768px) {

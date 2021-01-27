@@ -138,7 +138,7 @@ export default {
 
 .controls {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background: transparent;
 }
 

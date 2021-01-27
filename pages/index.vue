@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <Title v-if="loaded"/>
+    <Title class="header" v-if="loaded"/>
     <Loading  v-if="!loaded"/>
-    <div v-if="loaded">
+    <div class="content" v-if="loaded">
         <PhotoGrid />
         <Modal v-if="activeGif" @close="activateGif(null)">
         </Modal>
@@ -148,13 +148,20 @@ h1 {
   text-align: center;
 }
 .container {
-  margin: 0 auto;
+  margin: 0;
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
+  /* background-color: #ff2be3; */
   justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.header {
+  position: absolute;
+  background: white;
 }
 
 .title {

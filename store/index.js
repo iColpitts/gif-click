@@ -11,47 +11,54 @@ export const state = () => ({
             'format': '.jpg'
         },
         {
-            'id': 'windowBoob',
+            'id': 'wb',
             'frame': 0,
-            'maxFrame': 43,
+            'maxFrame': 54,
             'format': '.jpg'
         },
-        // {
-        //     'id': 'one',
-        //     'frame': 1,
-        //     'maxFrame': 99,
-        //     'format': '.jpeg'
-        // },
-        // {
-        //     'id': 'two',
-        //     'frame': 1,
-        //     'maxFrame': 99,
-        //     'format': '.jpeg'
-        // },
-        // {
-        //     'id': 'three',
-        //     'frame': 1,
-        //     'maxFrame': 99,
-        //     'format': '.jpeg'
-        // },
-        // {
-        //     'id': 'four',
-        //     'frame': 1,
-        //     'maxFrame': 99,
-        //     'format': '.jpeg'
-        // },
-        // {
-        //     'id': 'five',
-        //     'frame': 1,
-        //     'maxFrame': 99,
-        //     'format': '.jpeg'
-        // },
-        // {
-        //     'id': 'six',
-        //     'frame': 1,
-        //     'maxFrame': 99,
-        //     'format': '.jpeg'
-        // },
+        {
+            'id': 'one',
+            'frame': 1,
+            'maxFrame': 99,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'two',
+            'frame': 1,
+            'maxFrame': 99,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'three',
+            'frame': 1,
+            'maxFrame': 99,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'four',
+            'frame': 1,
+            'maxFrame': 99,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'five',
+            'frame': 1,
+            'maxFrame': 99,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'six',
+            'frame': 1,
+            'maxFrame': 99,
+            'format': '.jpeg'
+        },
+        {
+            'id': 'bit',
+            'frame': 0,
+            'maxFrame': 50,
+            'format': '.png'
+        },
+
     ]
 })
 
