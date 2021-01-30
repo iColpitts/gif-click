@@ -1,132 +1,134 @@
 <template>
   <div class="container">
-    <Title class="header" v-if="loaded"/>
-    <Loading  v-if="!loaded"/>
+    <Title class="header" v-if="loaded" />
+    <div v-if="!loaded">
+      <Loading />
+      <div>
+        <p>1/ Select image.</p>
+        <p>2/ Use left and right arrow keys to Loop + Scrub</p>
+      </div>
+    </div>
     <div class="content" v-if="loaded">
-        <PhotoGrid />
-        <Modal v-if="activeGif" @close="activateGif(null)">
-        </Modal>
+      <PhotoGrid />
+      <Modal v-if="activeGif" @close="activateGif(null)"> </Modal>
     </div>
   </div>
 </template>
 
 <script>
-import Modal from '@/components/Modal.vue'
-import PhotoGrid from '@/components/PhotoGrid.vue';
-import Loading from '@/components/Loading.vue';
-import Title from '@/components/Title.vue';
-import { mapState, mapMutations } from 'vuex';
+import Modal from "@/components/Modal.vue";
+import PhotoGrid from "@/components/PhotoGrid.vue";
+import Loading from "@/components/Loading.vue";
+import Title from "@/components/Title.vue";
+import { mapState, mapMutations } from "vuex";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Modal,
     PhotoGrid,
     Loading,
-    Title
+    Title,
   },
-  data () {
+  data() {
     return {
-      showModal: true
-    }
+      showModal: true,
+    };
   },
   computed: {
-    ...mapState([
-      'activeGif',
-      'loaded',
-      'gifs'
-    ]),
-
+    ...mapState(["activeGif", "loaded", "gifs"]),
   },
   methods: {
     ...mapMutations([
-        'activateGif',
-        'setLoaded', //also supports payload `this.nameOfMutation(amount)` 
+      "activateGif",
+      "setLoaded", //also supports payload `this.nameOfMutation(amount)`
     ]),
     loadImg(options, callback) {
       var seconds = 0,
-          maxSeconds = 100,
-          complete = false,
-          done = false;
+        maxSeconds = 100,
+        complete = false,
+        done = false;
 
       if (options.maxSeconds) {
-          maxSeconds = options.maxSeconds;
+        maxSeconds = options.maxSeconds;
       }
       function tryImage() {
-          if (done) {
-              return;
+        if (done) {
+          return;
+        }
+        if (seconds >= maxSeconds) {
+          callback({
+            err: "timeout: " + options.src,
+          });
+          done = true;
+          return;
+        }
+        if (complete && img.complete) {
+          if (img.width && img.height) {
+            callback({
+              img: img,
+            });
+            done = true;
+            return;
           }
-          if (seconds >= maxSeconds) {
-              callback({
-                  err: 'timeout: '+options.src
-              });
-              done = true;
-              return;
-          }
-          if (complete && img.complete) {
-              if (img.width && img.height) {
-                  callback({
-                      img: img
-                  });
-                  done = true;
-                  return;
-              }
-              callback({
-                  err: '404'
-              });
-              done = true;
-              return;
-          } else if (img.complete) {
-              complete = true;
-          }
-          seconds++;
-          callback.tryImage = setTimeout(tryImage, 1000);
+          callback({
+            err: "404",
+          });
+          done = true;
+          return;
+        } else if (img.complete) {
+          complete = true;
+        }
+        seconds++;
+        callback.tryImage = setTimeout(tryImage, 1000);
       }
       var img = new Image();
       img.onload = tryImage();
-      console.log(options.src)
+      console.log(options.src);
       img.src = options.src;
       tryImage();
     },
     gifArray(gif) {
-      const paths = []
+      const paths = [];
       for (var i = gif.frame; i < gif.maxFrame; i++) {
-        paths.push(require('~/assets/gifs/'+gif.id+i+gif.format))
+        paths.push(require("~/assets/gifs/" + gif.id + i + gif.format));
       }
-      return paths
-    }
+      return paths;
+    },
   },
-  mounted () {
-    console.log("hello")
-    
-    var paths = []
-    this.gifs.forEach(gif => {
+  mounted() {
+    console.log("hello");
+
+    var paths = [];
+    this.gifs.forEach((gif) => {
       if (gif.noClick) return;
-      const gifPaths = this.gifArray(gif)
-      paths = paths.concat(gifPaths)
-    })
-
-    var promises = []
-    paths.forEach((path => {
-      const promise = new Promise((resolve, reject) => {
-        return this.loadImg({src: path}, function (status) {
-            if (!status.err) {
-              resolve(status)
-            } else {
-              reject(status.err)
-            }
-        });
-      }) 
-      promises.push(promise)
-    }))
-
-    Promise.all(promises).then(resp => {
-      this.setLoaded(true)
-      console.log(resp)
-      //callBack()
-    }).catch(e => {
-      console.log(e);
+      const gifPaths = this.gifArray(gif);
+      paths = paths.concat(gifPaths);
     });
+
+    var promises = [];
+    paths.forEach((path) => {
+      const promise = new Promise((resolve, reject) => {
+        return this.loadImg({ src: path }, function (status) {
+          if (!status.err) {
+            resolve(status);
+          } else {
+            reject(status.err);
+          }
+        });
+      });
+      promises.push(promise);
+    });
+
+    Promise.all(promises)
+      .then((resp) => {
+        this.setLoaded(true);
+        console.log(resp);
+        //callBack()
+      })
+      .catch((e) => {
+        console.log(e);
+      });
 
     // img1.then((value)=> {
     //   this.setLoaded(true)
@@ -136,7 +138,7 @@ export default {
     //   console.log(e);
     // });
   },
-}
+};
 </script>
 
 <style>
@@ -160,22 +162,19 @@ h1 {
   text-align: center;
 }
 
+p {
+  color: #ff2be3;
+  text-align: left;
+}
+
 .header {
   position: absolute;
   /* background: white; */
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
