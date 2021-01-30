@@ -1,19 +1,29 @@
 <template>
   <div class="container">
     <div v-if="!cw">
-      <Loading v-if="!loaded"/>
-      <div class="hereBeTheSex">
-        <h1 class="pink">Content Warning</h1>
-        <p class="pink">This work contains sexual content</p>
+      <Loading v-if="!loaded" />
+      <div>
+        <div class="hereBeTheSex">
+          <h1 class="pink">Loop + Scrub</h1>
+          <h1 class="pink">By: <a href="https://snaxwell.com/">Maxwell Lander</a></h1>
+          <p class="pink">Model: <a href="http://www.pureivory.ca/main/">Ivory</a></p>
+          <p class="pink">Prgramming: <a href="https://izziecolpitts.com/">Izzie Colpitts-Campbell</a></p>
+        </div>
+        <div>
+          <div class="instructions">
+            <h1>To Play</h1>
+            <p>1/ Select image.</p>
+            <p>2/ Use left and right arrow keys to Loop + Scrub</p>
+          </div>
+          <div class="hereBeTheSex">
+            <h1 class="pink">Content Warning</h1>
+            <p class="pink">This work contains sexual content</p>
+          </div>
+          <button v-if="loaded" class="enter" @click="cw = true">ENTER</button>
+        </div>
       </div>
-      <div class="instructions">
-        <h1>To Play</h1>
-        <p>1/ Select image.</p>
-        <p>2/ Use left and right arrow keys to Loop + Scrub</p>
-      </div>
-      <button v-if="loaded" class="enter" @click="cw=true">ENTER</button>
     </div>
-    <Title class="header" v-if="cw" />
+    <Title class="header" v-if="cw"  @click="cw=false"/>
     <div v-if="cw" class="content">
       <PhotoGrid />
       <Modal v-if="activeGif" @close="activateGif(null)"> </Modal>
@@ -48,11 +58,12 @@ export default {
   methods: {
     ...mapMutations([
       "activateGif",
-      "setLoaded", //also supports payload `this.nameOfMutation(amount)`
+      "setLoaded",
+       //also supports payload `this.nameOfMutation(amount)`
     ]),
     loadImg(options, callback) {
       var seconds = 0,
-        maxSeconds = 100,
+        maxSeconds = 200,
         complete = false,
         done = false;
 
@@ -120,7 +131,8 @@ export default {
           if (!status.err) {
             resolve(status);
           } else {
-            reject(status.err);
+            console.log(status.err);
+            resolve(status);
           }
         });
       });
@@ -136,14 +148,6 @@ export default {
       .catch((e) => {
         console.log(e);
       });
-
-    // img1.then((value)=> {
-    //   this.setLoaded(true)
-    //   console.log(value)
-
-    // }).catch(e => {
-    //   console.log(e);
-    // });
   },
 };
 </script>
@@ -172,7 +176,11 @@ h1 {
   margin-bottom: 5px;
 }
 
-button {
+a:hover {
+  text-decoration: underline;
+}
+
+.enter {
   border: 1px solid #ff2be3;
   padding: 5px;
   margin: 25px;
@@ -181,10 +189,14 @@ button {
   background-color: white;
   color: #ff2be3;
 }
-button:hover {
+.enter:hover {
   background-color: #ff2be3;
   color: white;
   border-color: white;
+}
+
+.logo {
+  max-width: 150px;
 }
 
 .hereBeTheSex {
@@ -214,26 +226,4 @@ button:hover {
   position: absolute;
   /* background: white; */
 }
-
-/* .title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-} */
 </style>
