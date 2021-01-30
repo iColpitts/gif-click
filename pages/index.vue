@@ -1,17 +1,27 @@
 <template>
   <div class="container">
     <div v-if="!cw">
-      <Loading v-if="!loaded"/>
-      <div class="hereBeTheSex">
-        <h1 class="pink">Content Warning</h1>
-        <p class="pink">This work contains sexual content</p>
+      <Loading v-if="!loaded" />
+      <div>
+        <div class="hereBeTheSex">
+          <h1 class="pink">Loop + Scrub</h1>
+          <h1 class="pink">By: <a href="https://snaxwell.com/">Maxwell Lander</a></h1>
+          <p class="pink">Model: <a href="http://www.pureivory.ca/main/">Ivory</a></p>
+          <p class="pink">Prgramming: <a href="https://izziecolpitts.com/">Izzie Colpitts-Campbell</a></p>
+        </div>
+        <div>
+          <div class="instructions">
+            <h1>To Play</h1>
+            <p>1/ Select image.</p>
+            <p>2/ Use left and right arrow keys to Loop + Scrub</p>
+          </div>
+          <div class="hereBeTheSex">
+            <h1 class="pink">Content Warning</h1>
+            <p class="pink">This work contains sexual content</p>
+          </div>
+          <button v-if="loaded" class="enter" @click="cwToggle()">ENTER</button>
+        </div>
       </div>
-      <div class="instructions">
-        <h1>To Play</h1>
-        <p>1/ Select image.</p>
-        <p>2/ Use left and right arrow keys to Loop + Scrub</p>
-      </div>
-      <button v-if="loaded" class="enter" @click="cw=true">ENTER</button>
     </div>
     <Title class="header" v-if="cw" />
     <div v-if="cw" class="content">
@@ -120,7 +130,7 @@ export default {
           if (!status.err) {
             resolve(status);
           } else {
-            console.log(status.err)
+            console.log(status.err);
             resolve(status);
           }
         });
@@ -165,6 +175,10 @@ h1 {
   margin-bottom: 5px;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 .enter {
   border: 1px solid #ff2be3;
   padding: 5px;
@@ -178,6 +192,10 @@ h1 {
   background-color: #ff2be3;
   color: white;
   border-color: white;
+}
+
+.logo {
+  max-width: 150px;
 }
 
 .hereBeTheSex {

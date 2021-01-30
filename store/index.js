@@ -1,5 +1,6 @@
 export const state = () => ({
     loaded: false,
+    cw: false,
     activeGif: null,
     increment: null,
     interval: null,
