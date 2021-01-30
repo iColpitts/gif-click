@@ -52,7 +52,7 @@ export default {
     ]),
     loadImg(options, callback) {
       var seconds = 0,
-        maxSeconds = 100,
+        maxSeconds = 120,
         complete = false,
         done = false;
 
@@ -137,14 +137,6 @@ export default {
       .catch((e) => {
         console.log(e);
       });
-
-    // img1.then((value)=> {
-    //   this.setLoaded(true)
-    //   console.log(value)
-
-    // }).catch(e => {
-    //   console.log(e);
-    // });
   },
 };
 </script>
@@ -173,7 +165,7 @@ h1 {
   margin-bottom: 5px;
 }
 
-button {
+.enter {
   border: 1px solid #ff2be3;
   padding: 5px;
   margin: 25px;
@@ -182,7 +174,7 @@ button {
   background-color: white;
   color: #ff2be3;
 }
-button:hover {
+.enter:hover {
   background-color: #ff2be3;
   color: white;
   border-color: white;
@@ -216,25 +208,4 @@ button:hover {
   /* background: white; */
 }
 
-/* .title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-} */
 </style>
