@@ -1,7 +1,8 @@
 <template>
     <div class="grid">
-        <div  v-for="gif of gifs" v-bind:key="gif.id" @click="activateGif(gif)">
-            <img class="photo" :src="require('../assets/'+gif.id+gif.frame+gif.format)"> 
+        <div  v-for="gif of gifs" v-bind:key="gif.id" @click="gif.noClick ? null : activateGif(gif)">
+            <img v-if="!gif.noClick" class="photo" :src="require('../assets/gifs/'+gif.id+gif.frame+gif.format)">
+            <div v-if="gif.noClick" class="photo"/>
         </div>
     </div>
 </template>
@@ -40,8 +41,13 @@ export default {
 .photo {
     width: 33.33vw;
     height: 33.33vh;
-    object-fit: cover;
     padding: 3px;
+    background-color: #ff2be3;
+}
+
+img.photo {
+    object-fit: cover;
+
 }
 
 @media screen and (min-width: 768px) {

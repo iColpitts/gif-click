@@ -5,58 +5,56 @@ export const state = () => ({
     interval: null,
     gifs: [ 
         {
-            'id': 'porny',
-            'frame': 1,
-            'maxFrame': 78,
+            'id': 'butt',
+            'frame': 0,
+            'maxFrame': 97,
+            'format': '.jpg'
+        },
+        {
+            'id': 'car',
+            'frame': 0,
+            'maxFrame': 59,
+            'format': '.jpg'
+        },
+        {
+            'id': 'hair',
+            'frame': 0,
+            'maxFrame': 50,
+            'format': '.jpg'
+        },
+        {
+            'id': 'hand',
+            'frame': 0,
+            'maxFrame': 58,
+            'format': '.jpg'
+        },
+        {
+            'id': 'blank',
+            'noClick': true
+        },
+        {
+            'id': 'lick',
+            'frame': 0,
+            'maxFrame':67,
+            'format': '.jpg'
+        },
+        {
+            'id': 'porn',
+            'frame': 0,
+            'maxFrame': 77,
+            'format': '.jpg'
+        },
+        {
+            'id': 'pro',
+            'frame': 0,
+            'maxFrame': 51,
             'format': '.jpg'
         },
         {
             'id': 'wb',
             'frame': 0,
-            'maxFrame': 54,
+            'maxFrame': 53,
             'format': '.jpg'
-        },
-        {
-            'id': 'one',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'two',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'three',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'four',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'five',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'six',
-            'frame': 1,
-            'maxFrame': 99,
-            'format': '.jpeg'
-        },
-        {
-            'id': 'bit',
-            'frame': 0,
-            'maxFrame': 50,
-            'format': '.png'
         },
 
     ]

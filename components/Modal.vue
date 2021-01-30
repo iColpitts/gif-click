@@ -9,7 +9,7 @@
             <button class="modal-default-button p-4" v-on:click="close()">
               <img src="@/assets/icon-close.png">
             </button>
-            <img class="shadow-ml" :src="require('../assets/'+activeGif.id+activeGif.frame+activeGif.format)">
+            <img class="shadow-ml" :src="require('../assets/gifs/'+activeGif.id+activeGif.frame+activeGif.format)">
             <div class="controls p-4">
               <button v-on:click="incrementFrame(-1)">
                 <img src="@/assets/icon-left.png">
