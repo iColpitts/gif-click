@@ -120,6 +120,7 @@ export default {
           if (!status.err) {
             resolve(status);
           } else {
+            console.log(status.err)
             resolve(status);
           }
         });
