@@ -1,14 +1,20 @@
 <template>
   <div class="container">
-    <Title class="header" v-if="loaded" />
-    <div v-if="!loaded">
-      <Loading />
-      <div>
+    <div v-if="!cw">
+      <Loading v-if="!loaded"/>
+      <div class="hereBeTheSex">
+        <h1 class="pink">Content Warning</h1>
+        <p class="pink">This work contains sexual content</p>
+      </div>
+      <div class="instructions">
+        <h1>To Play</h1>
         <p>1/ Select image.</p>
         <p>2/ Use left and right arrow keys to Loop + Scrub</p>
       </div>
+      <button v-if="loaded" class="enter" @click="cw=true">ENTER</button>
     </div>
-    <div class="content" v-if="loaded">
+    <Title class="header" v-if="cw" />
+    <div v-if="cw" class="content">
       <PhotoGrid />
       <Modal v-if="activeGif" @close="activateGif(null)"> </Modal>
     </div>
@@ -33,6 +39,7 @@ export default {
   data() {
     return {
       showModal: true,
+      cw: false,
     };
   },
   computed: {
@@ -147,9 +154,6 @@ export default {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-h1 {
-  text-align: center;
-}
 .container {
   margin: 0;
   min-height: 100vh;
@@ -162,9 +166,48 @@ h1 {
   text-align: center;
 }
 
-p {
+h1 {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+button {
+  border: 1px solid #ff2be3;
+  padding: 5px;
+  margin: 25px;
+  width: 75%;
+  border-radius: 20px;
+  background-color: white;
   color: #ff2be3;
+}
+button:hover {
+  background-color: #ff2be3;
+  color: white;
+  border-color: white;
+}
+
+.hereBeTheSex {
+  border: 1px solid #ff2be3;
+  text-align: center;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pink {
+  color: #ff2be3;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
   text-align: left;
+  background-color: #ff2be3;
+  color: white;
 }
 
 .header {
@@ -172,7 +215,7 @@ p {
   /* background: white; */
 }
 
-.title {
+/* .title {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
@@ -192,5 +235,5 @@ p {
 
 .links {
   padding-top: 15px;
-}
+} */
 </style>
