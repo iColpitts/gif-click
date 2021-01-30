@@ -19,11 +19,11 @@
             <h1 class="pink">Content Warning</h1>
             <p class="pink">This work contains sexual content</p>
           </div>
-          <button v-if="loaded" class="enter" @click="cwToggle()">ENTER</button>
+          <button v-if="loaded" class="enter" @click="cw = true">ENTER</button>
         </div>
       </div>
     </div>
-    <Title class="header" v-if="cw" />
+    <Title class="header" v-if="cw"  @click="cw=false"/>
     <div v-if="cw" class="content">
       <PhotoGrid />
       <Modal v-if="activeGif" @close="activateGif(null)"> </Modal>
@@ -49,16 +49,16 @@ export default {
   data() {
     return {
       showModal: true,
-      cw: false,
     };
   },
   computed: {
-    ...mapState(["activeGif", "loaded", "gifs"]),
+    ...mapState(["activeGif", "loaded", "gifs", "cw"]),
   },
   methods: {
     ...mapMutations([
       "activateGif",
-      "setLoaded", //also supports payload `this.nameOfMutation(amount)`
+      "setLoaded",
+       //also supports payload `this.nameOfMutation(amount)`
     ]),
     loadImg(options, callback) {
       var seconds = 0,
@@ -225,5 +225,4 @@ a:hover {
   position: absolute;
   /* background: white; */
 }
-
 </style>
