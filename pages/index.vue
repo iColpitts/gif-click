@@ -52,7 +52,7 @@ export default {
     ]),
     loadImg(options, callback) {
       var seconds = 0,
-        maxSeconds = 100,
+        maxSeconds = 60,
         complete = false,
         done = false;
 
@@ -120,7 +120,7 @@ export default {
           if (!status.err) {
             resolve(status);
           } else {
-            reject(status.err);
+            resolve(status);
           }
         });
       });
