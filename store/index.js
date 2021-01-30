@@ -8,25 +8,25 @@ export const state = () => ({
             'id': 'butt',
             'frame': 0,
             'maxFrame': 97,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
         {
             'id': 'car',
             'frame': 0,
             'maxFrame': 59,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
         {
             'id': 'hair',
             'frame': 0,
             'maxFrame': 50,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
         {
             'id': 'hand',
             'frame': 0,
             'maxFrame': 58,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
         {
             'id': 'blank',
@@ -36,25 +36,25 @@ export const state = () => ({
             'id': 'lick',
             'frame': 0,
             'maxFrame':67,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
         {
             'id': 'porn',
             'frame': 0,
             'maxFrame': 77,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
         {
             'id': 'pro',
             'frame': 0,
             'maxFrame': 51,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
         {
             'id': 'wb',
             'frame': 0,
             'maxFrame': 53,
-            'format': '.jpg'
+            'format': '.jpeg'
         },
 
     ]
