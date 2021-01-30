@@ -49,10 +49,11 @@ export default {
   data() {
     return {
       showModal: true,
+      cw: false,
     };
   },
   computed: {
-    ...mapState(["activeGif", "loaded", "gifs", "cw"]),
+    ...mapState(["activeGif", "loaded", "gifs"]),
   },
   methods: {
     ...mapMutations([
