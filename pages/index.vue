@@ -17,7 +17,7 @@
           </div>
           <div class="hereBeTheSex">
             <h1 class="pink">Content Warning</h1>
-            <p class="pink">This work contains sexual content</p>
+            <p class="pink">This work contains sexual content. Viewers must be at least 18 years of age.</p>
           </div>
           <button v-if="loaded" class="enter" @click="cw = true">ENTER</button>
         </div>
