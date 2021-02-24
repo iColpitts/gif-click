@@ -7,7 +7,7 @@
           <h1 class="pink">Loop + Scrub</h1>
           <h1 class="pink">By: <a href="https://snaxwell.com/">Maxwell Lander</a></h1>
           <p class="pink">Model: <a href="http://www.pureivory.ca/main/">Ivory</a></p>
-          <p class="pink">Prgramming: <a href="https://izziecolpitts.com/">Izzie Colpitts-Campbell</a></p>
+          <p class="pink">Development: <a href="https://izziecolpitts.com/">Izzie Colpitts-Campbell</a></p>
         </div>
         <div>
           <div class="instructions">
